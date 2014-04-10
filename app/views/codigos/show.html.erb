@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Estudiante:</strong>
+  <%= @codigo.estudiante %>
+</p>
+
+<p>
+  <strong>Codigo evaluacion:</strong>
+  <%= @codigo.codigo_evaluacion %>
+</p>
+
+<p>
+  <strong>Estado:</strong>
+  <%= @codigo.estado %>
+</p>
+
+<%= link_to 'Edit', edit_codigo_path(@codigo) %> |
+<%= link_to 'Back', codigos_path %>

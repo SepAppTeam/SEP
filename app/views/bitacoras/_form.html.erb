@@ -1,0 +1,89 @@
+<body id="bitacora">
+    <%= javascript_include_tag "fecha" %>
+    <%= javascript_include_tag "bitacora" %>
+    <%= simple_form_for @bitacora, :html => { :class => 'form-horizontal' } do |f| %>   </br></br></br></br></br></br></br></br>
+
+    <div id="login">
+  <p >Apreindiz logueado en Sistema:  <strong><%= @estudiante.nombre1 %> <%= @estudiante.nombre2 %> <%= @estudiante.apellido1 %> <%= @estudiante.apellido2 %></strong>
+  </p></br></br>
+    <div class="row">
+        <div class="col-md-6">
+      
+          <label class="checkbox-inline">
+            <label> Proyecto Registrado? </label>
+            <input type="radio" class="radio1"  label="No"  name="rad" id="no" value="1" checked="checked"/>No
+          </label>
+          <label class="checkbox-inline">
+            <input type="radio" name="rad" id="si" value="2" label="Si" />Si
+          </label>
+        </div>
+      <div class="col-md-12 cuadro4" id="txt2">
+        <div class="col-md-6" id="color">
+          <%= f.collection_select  :asignar_proy_id , AsignarProy.where(:estudiante_id => @estudiante.id), :id, :nombreproyecto, :prompt => "Selecione proyecto ", :html_input => {:style => "visibility:hidden"}, :class=>'form-control' %>
+        </div>
+      </div>
+      <hr>
+      <br>
+    </div>
+    <div class="row" >
+      <div class="col-md-12 cuadro4">
+        <div class="col-md-6" id ="txt1">
+          <%= f.input :nombreproyecto,  :required => true, :placeholder=>"Ingrese Nombre Proyecto" %>
+        </div>
+        
+      </div>
+    </div>
+    <div class="row" >
+      <div class="col-md-12 cuadro4">
+        <div class="col-md-6" id ="txt1">
+          <h2>Actividades</h2>
+        </div>
+        
+      </div>
+    </div>
+    <div class="row">
+      <p class="span8">                 
+        Relacionar funciones o actividades que correspondan al resultado de aprendizaje de la Etapa Productiva y al perfil del egresado establecido en el programa de formación.
+      </p>
+    </div>              
+    <div class="spa8" >
+          <%= f.input :actividad, :label => false,  :required => true %>      
+    </div>
+    <div class="row">
+      <div class="col-md-12 cuadro4">
+        <div class="col-md-6">
+          <%= f.input :fecha_inicio, :label => "", :as => :string, :input_html => {  :class => "datepicker " } %>
+        </div>
+        <div class="col-md-6">
+          <%= f.input :fecha_fin, :as => :string, :required => true,  :input_html => {  :class => "datepicker" } %>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 cuadro4">
+        <div class="col-md-6">
+          <%= f.collection_select :categoria_id, Categoria.all, :id, :nombre, :prompt => "Selecione Categoria de actividades" %>
+        </div>
+        <div class="col-md-6">
+          <%= f.collection_select :actestado_id , Actestado.all, :id, :nombre, :prompt => "Selecione estado de las actividades" %>
+        </div>
+      </div>
+    </div> 
+    <br>
+    <hr> 
+    <div class="row spa8" >
+          <%= f.input :observaciones, :label => "Observaciones: ",  :required => true %>      
+    </div>    
+    </div> 
+
+    <div class="modal-footer">
+      <%= f.submit "guardar", :class => 'btn btn-primary' %>                             
+    </div>
+    
+  <% end %>
+</body>
+
+
+
+
+         

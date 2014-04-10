@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  estudiante_id: 
+  codigo_evaluacion: MyString
+  estado: false
+
+two:
+  estudiante_id: 
+  codigo_evaluacion: MyString
+  estado: false

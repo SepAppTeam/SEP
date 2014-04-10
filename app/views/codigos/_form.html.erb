@@ -1,0 +1,13 @@
+<%= simple_form_for(@codigo) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.collection_select :estudiante_id, Estudiante.all, :id, :nombre1, :prompt => "Selecione Usuarios", :label => false,  :required => true  %>
+    <%= f.input :codigo_evaluacion %>
+    <%= f.input :estado %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

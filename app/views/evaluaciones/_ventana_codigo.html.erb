@@ -1,0 +1,18 @@
+<div class="modal-header">
+  <h1>Código para Evaluación</h1>
+</div>
+
+<%= form_tag valida_codigo_path, :method => 'post' do %>
+
+  <div class="modal-body">
+              
+    <p>Ingrese código</p>
+    <%= text_field_tag :codigo, params[:codigo] %>
+
+  </div> 
+  
+  <div class="modal-footer">
+    <%= submit_tag "Aceptar", :class => "btn btn-success" %>
+  </div>
+
+<% end %>

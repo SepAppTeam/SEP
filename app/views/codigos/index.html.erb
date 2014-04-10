@@ -1,0 +1,31 @@
+<h1>Listing codigos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Estudiante</th>
+      <th>Codigo evaluacion</th>
+      <th>Estado</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @codigos.each do |codigo| %>
+      <tr>
+        <td><%= codigo.estudiante %></td>
+        <td><%= codigo.codigo_evaluacion %></td>
+        <td><%= codigo.estado %></td>
+        <td><%= link_to 'Show', codigo %></td>
+        <td><%= link_to 'Edit', edit_codigo_path(codigo) %></td>
+        <td><%= link_to 'Destroy', codigo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Codigo', new_codigo_path %>
